@@ -1,4 +1,5 @@
 import "bulma/css/bulma.min.css";
+import { useEffect, useState } from "react";
 
 import { BrowserRouter, Routes, Route, Link, useParams, useSearchParams, useNavigate } from "react-router-dom";
 
@@ -42,7 +43,48 @@ function Home() {
 }
 
 function About() {
-    return <div className="title">About</div>;
+    const [counter1, setCounter1] = useState(0);
+    const [counter2, setCounter2] = useState(0);
+
+    useEffect(() => {
+        console.log("amidral n ehellee:", Date.now());
+
+        const myInterval = setInterval(function () {
+            console.log("inverval", Date.now());
+        }, 1000);
+
+        //
+
+        return () => {
+            clearInterval(myInterval);
+            console.log("amidral duuslaa:", Date.now());
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log("buh oorchlolt:", Date.now());
+    });
+
+    useEffect(() => {
+        console.log("counter1 oorchlolt:", Date.now());
+        // database ruu counter1 hadgal
+    }, [counter1]);
+
+    return (
+        <>
+            <div className="title">About </div>
+
+            <button className="button" onClick={() => setCounter1(counter1 + 1)}>
+                Increment
+            </button>
+            <div className="subtitle">Counter1: {counter1}</div>
+
+            <button className="button" onClick={() => setCounter2(counter2 + 10)}>
+                Increment
+            </button>
+            <div className="subtitle">Counter2: {counter2}</div>
+        </>
+    );
 }
 
 function Categories() {
