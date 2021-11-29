@@ -12,4 +12,5 @@ install: npm install react-router-dom@6
 
 useEffect
 
+Haigaad solid (Find and Replace) ctrl + F
 
