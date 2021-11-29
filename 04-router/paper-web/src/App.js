@@ -46,14 +46,13 @@ function About() {
     const [counter1, setCounter1] = useState(0);
     const [counter2, setCounter2] = useState(0);
 
+    console.log("every render");
+
     useEffect(() => {
         console.log("amidral n ehellee:", Date.now());
-
         const myInterval = setInterval(function () {
             console.log("inverval", Date.now());
         }, 1000);
-
-        //
 
         return () => {
             clearInterval(myInterval);
