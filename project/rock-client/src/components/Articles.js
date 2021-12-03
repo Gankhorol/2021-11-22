@@ -1,19 +1,49 @@
 /** @jsxImportSource @emotion/react */
 
+import Categories from "./Categories";
+
 export default function Articles() {
     return (
-        <div css={gridCss}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-                <div className="card" css={gridItemCss} key={item}>
-                    <div className="card-image">
-                        <figure className="image is-16by9">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-                        </figure>
+        <>
+            <Categories />
+
+            <div css={gridCss}>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+                    <div className="card" css={gridItemCss} key={item}>
+                        <div className="card-image">
+                            <figure className="image is-16by9">
+                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                            </figure>
+                        </div>
+                        <div className="card-content">{index % 2 === 1 && <div className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}</div>
                     </div>
-                    <div className="card-content">{index % 2 === 1 && <div className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}</div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+
+            <nav class="pagination" role="navigation" aria-label="pagination">
+                <a class="pagination-previous is-disabled" title="This is the first page">
+                    Previous
+                </a>
+                <a class="pagination-next">Next page</a>
+                <ul class="pagination-list">
+                    <li>
+                        <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">
+                            1
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pagination-link" aria-label="Goto page 2">
+                            2
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pagination-link" aria-label="Goto page 3">
+                            3
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </>
     );
 }
 

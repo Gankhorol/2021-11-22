@@ -1,15 +1,22 @@
 import Articles from "./components/Articles";
-import Categories from "./components/Categories";
+import OneArticle from "./components/OneArticle";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { BrowserRouter, Routes, Route, Link, useParams, useSearchParams, useNavigate } from "react-router-dom";
 
 function App() {
     return (
         <>
-            <Header />
-            <div className="container mt-6" style={{ maxWidth: 700 }}>
-                <Categories />
-                <Articles />
-            </div>
+            <BrowserRouter>
+                <Header />
+                <div className="container mt-6 mb-6" style={{ maxWidth: 700 }}>
+                    <Routes>
+                        <Route path="/" element={<Articles />} />
+                        <Route path="blog/:blogId" element={<OneArticle />} />
+                    </Routes>
+                </div>
+                <Footer />
+            </BrowserRouter>
         </>
     );
 }
