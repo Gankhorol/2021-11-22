@@ -3,8 +3,15 @@ import { FacebookProvider, Comments } from "react-facebook";
 
 export default function OneArticles() {
     return (
-        <div>
+        <div className="container" style={{ maxWidth: 600 }}>
             <h1 className="title">Кибер аюулгүй байдлын хуулийг эцсийн хэлэлцүүлэгт шилжүүлэв </h1>
+
+            <div className="is-flex block is-justify-content-space-between">
+                <span className="tag is-danger">Улс төр</span>
+                <div className="has-text-grey">
+                    <small>20 минутын өмнө</small>
+                </div>
+            </div>
 
             <div className="content">
                 <p>11:35 2021/12/03 ВИДЕО: Кибер аюулгүй байдлын тухай хуулийн төсөл болон хамт өргөн мэдүүлсэн хуулийн төслүүдийг эцсийн хэлэлцүүлэгт бэлтгүүлэхээр холбогдох байнгын хороонд шилжүүллээ.</p>

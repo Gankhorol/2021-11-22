@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
+import { Link } from "react-router-dom";
 import Categories from "./Categories";
 
 export default function Articles() {
@@ -9,14 +10,24 @@ export default function Articles() {
 
             <div css={gridCss}>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-                    <div className="card" css={gridItemCss} key={item}>
+                    <Link to="/blog/15" className="card" css={gridItemCss} key={item}>
                         <div className="card-image">
                             <figure className="image is-16by9">
                                 <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
                             </figure>
                         </div>
-                        <div className="card-content">{index % 2 === 1 && <div className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}</div>
-                    </div>
+                        <div className="card-content">
+                            <div className="block">
+                                <span className="tag is-danger">Улс төр</span>
+                            </div>
+
+                            <div className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+                            <div className="has-text-grey">
+                                <small>20 минутын өмнө</small>
+                            </div>
+                        </div>
+                    </Link>
                 ))}
             </div>
 

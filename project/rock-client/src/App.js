@@ -9,7 +9,7 @@ function App() {
         <>
             <BrowserRouter>
                 <Header />
-                <div className="container mt-6 mb-6" style={{ maxWidth: 700 }}>
+                <div className="container mt-6 mb-6" style={{ maxWidth: 1000 }}>
                     <Routes>
                         <Route path="/" element={<Articles />} />
                         <Route path="blog/:blogId" element={<OneArticle />} />
