@@ -11,13 +11,20 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+    { label: "Нүүр", path: "/" },
+    { label: "Ангилал", path: "categories" },
+    { label: "Нийтлэл", path: "articles" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -33,6 +40,11 @@ const Header = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    function handleNavigate(path) {
+        setAnchorElNav(null);
+        navigate(path);
+    }
 
     return (
         <AppBar position="static">
@@ -65,8 +77,8 @@ const Header = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.path} onClick={() => handleNavigate(page.path)}>
+                                    <Typography textAlign="center">{page.label}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -76,8 +88,8 @@ const Header = () => {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                         {pages.map((page) => (
-                            <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
-                                {page}
+                            <Button key={page.path} onClick={() => handleNavigate(page.path)} sx={{ my: 2, color: "white", display: "block" }}>
+                                {page.label}
                             </Button>
                         ))}
                     </Box>
