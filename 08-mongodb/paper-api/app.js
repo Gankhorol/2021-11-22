@@ -17,14 +17,18 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-const Article = mongoose.model("Article", {
-    title: { type: String, required: true },
-    slug: { type: String, unique: true, index: true }, // filter
-    description: String,
-    text: String,
-    publishedAt: { type: Date, index: true }, // sort
-    readCount: Number,
-});
+const Article = mongoose.model(
+    "Article",
+    {
+        title: { type: String, required: true },
+        slug: { type: String, unique: true, index: true }, // filter
+        description: String,
+        text: String,
+        publishedAt: { type: Date, index: true }, // sort
+        readCount: Number,
+    },
+    "posts"
+);
 
 app.get("/create", async (req, res) => {
     const newArticle = new Article({
